@@ -1,0 +1,12 @@
+{
+	"webServer": {
+		"port": 9000,
+		"session": {
+			"secret": "SESSION_SECRET",
+			"cookieName": "__SESSION"
+		}
+	},
+	"socketIoServer": {
+		"port": 9001
+	}
+}
