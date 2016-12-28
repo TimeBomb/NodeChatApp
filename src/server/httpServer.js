@@ -7,14 +7,14 @@ import config from '../../config.server.json';
 
 export default class HttpServer {
 	constructor() {
-		var sqliteStore = sqlite(session);
+		var SqliteStore = sqlite(session);
 
 		this.expressServer = express();
 		this.httpServer = http.Server(this.expressServer);
 		this.expressSession = session({
-			store: new sqliteStore(),
-			secret: config.webServer.session.secret,
-			name: config.webServer.session.cookieName,
+			store: new SqliteStore(),
+			secret: config.httpServer.session.secret,
+			name: config.httpServer.session.cookieName,
 			resave: false,
 			saveUninitialized: true
 		});
@@ -24,9 +24,8 @@ export default class HttpServer {
 	}
 
 	start() {
-		this.httpServer.listen(config.webServer.port, function() {
-			console.log('Http Server now listening on port', config.webServer.port);
+		this.httpServer.listen(config.httpServer.port, function() {
+			console.log('HTTP Server now listening on port', config.httpServer.port);
 		});
 	}
 }
-

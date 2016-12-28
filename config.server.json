@@ -1,5 +1,5 @@
 {
-	"webServer": {
+	"httpServer": {
 		"port": 9000,
 		"session": {
 			"secret": "SESSION_SECRET",

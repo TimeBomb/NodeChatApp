@@ -1,8 +1,11 @@
-import httpServer from './server/httpServer.js';
-import socketIoServer from './server/socketIoServer.js';
+import HttpServer from './server/httpServer.js';
+import SocketIoServer from './server/socketIoServer.js';
 
-new httpServer().start();
-new socketIoServer({
-	httpServer: httpServer.expressServer,
+var httpServer = new HttpServer();
+var socketIoServer = new SocketIoServer({
+	httpServer: httpServer.httpServer,
 	expressSession: httpServer.expressSession
-}).start();
+});
+
+httpServer.start();
+socketIoServer.start();

@@ -1,10 +1,12 @@
 import socketIo from 'socket.io';
-import http from 'http';
 import sessionSocketIo from 'socket.io-express-session';
 import socketClient from './socketClient.js';
 
 export default class SocketIoServer {
 	constructor(dependencies) {
+		if (!dependencies.httpServer || !dependencies.expressSession) {
+			throw new Error('Must pass required dependencies to SocketIoServer');
+		}
 		this.socketIoServer = socketIo(dependencies.httpServer);
 		this.socketIoServer.use(sessionSocketIo(dependencies.expressSession));
 	}
@@ -13,7 +15,7 @@ export default class SocketIoServer {
 		try {
 			this.socketIoServer.on('connection', socketClient);
 		} catch (error) {
-			console.error(new Error('socketIoServer socket connection error:'), error);
+			console.error(new Error('SocketIoServer socket connection error:'), error);
 		}
 	}
 }
