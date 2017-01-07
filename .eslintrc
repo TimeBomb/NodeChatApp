@@ -11,5 +11,8 @@
     "parserOptions": {
         "sourceType": "module",
         "ecmaVersion": "6"
+    },
+    "globals": {
+        "_config": true
     }
 }

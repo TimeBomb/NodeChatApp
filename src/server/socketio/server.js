@@ -1,6 +1,6 @@
 import socketIo from 'socket.io';
 import sessionSocketIo from 'socket.io-express-session';
-import socketClient from './socketClient.js';
+import socketIoClient from './client.js';
 
 export default class SocketIoServer {
 	constructor(dependencies) {
@@ -13,7 +13,7 @@ export default class SocketIoServer {
 
 	start() {
 		try {
-			this.socketIoServer.on('connection', socketClient);
+			this.socketIoServer.on('connection', socketIoClient);
 		} catch (error) {
 			console.error(new Error('SocketIoServer socket connection error:'), error);
 		}

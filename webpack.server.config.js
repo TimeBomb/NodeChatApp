@@ -25,9 +25,15 @@ module.exports = {
 			loader: 'json-loader'
 		},
 		{
-			test: /\.js$/,
-			loaders: ['babel'],
-			include: [path.join(__dirname, 'src/server'), path.join(__dirname, 'src/index.js')]
+			test: [/\.js$/, /\.jsx$/],
+			loader: 'babel',
+			include: [
+				path.resolve(__dirname, 'src')
+			]
+		},
+		{
+			test: /\.html$/,
+			loader: 'html-loader'
 		}],
 		noParse: ['ws', /\.js.map$/]
 	},
@@ -35,11 +41,14 @@ module.exports = {
 	entry: [
 		'react-hot-loader/patch',
 		'webpack-hot-middleware/client',
-		'./src/index.js'
+		'./src/server/start.js'
 	],
 	output: {
-		path: path.join(__dirname, 'dist'),
+		path: path.resolve(__dirname, 'dist'),
 		filename: 'app.js',
 		publicPath: '/dist/'
+	},
+	resolve: {
+		root: [path.resolve(__dirname, 'src')]
 	}
 };
