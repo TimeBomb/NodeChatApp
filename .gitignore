@@ -4,4 +4,5 @@ node_modules
 jspm_packages
 .npm
 dist
+static/app-bundle.js
 sessions.db

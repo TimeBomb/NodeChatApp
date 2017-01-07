@@ -4,7 +4,7 @@ import session from 'express-session';
 import path from 'path';
 import sqlite from 'connect-sqlite3';
 
-const STATIC_PATH = path.resolve('../../../public');
+const STATIC_PATH = path.resolve('./static');
 const SqliteStore = sqlite(session);
 
 export default class HttpServer {
@@ -19,7 +19,7 @@ export default class HttpServer {
 			saveUninitialized: true
 		});
 
-		this.expressServer.use(express.static(STATIC_PATH));
+		this.expressServer.use('/static', express.static(STATIC_PATH));
 		this.expressServer.use(this.expressSession);
 	}
 

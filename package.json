@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "node dist/app.js",
-    "build": "webpack --config webpack.server.config.js"
+    "buildserver": "webpack --config webpack.server.config.js",
+    "buildclient": "webpack --config webpack.browser.config.js"
   },
   "repository": {
     "type": "git",
@@ -43,12 +44,12 @@
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "html-loader": "^0.4.4",
-    "jsesc": "^2.4.0",
     "mustache": "^2.3.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
+    "serialize-javascript": "^1.3.0",
     "socket.io": "^1.7.2",
     "socket.io-express-session": "^0.1.3"
   }

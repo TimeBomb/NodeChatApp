@@ -4,10 +4,11 @@
 		<title>Redux Universal Example</title>
 	</head>
 	<body>
-		<div id="root">{{appHtml}}</div>
+		<div id="root">{{& appHtml}}</div>
 		<script>
-			window.__PRELOADED_STATE__ = {{JSON.stringify(preloadedState)}}
+			window.__PRELOADED_STATE__ = {{& preloadedState}};
 		</script>
-		<script src="/static/bundle.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/static/app-bundle.js"></script>
 	</body>
 </html>
