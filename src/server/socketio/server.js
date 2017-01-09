@@ -1,4 +1,5 @@
 import socketIo from 'socket.io';
+import p2p from 'socket.io-p2p-server';
 import sessionSocketIo from 'socket.io-express-session';
 import socketIoClient from './client.js';
 
@@ -9,6 +10,7 @@ export default class SocketIoServer {
 		}
 		this.socketIoServer = socketIo(dependencies.httpServer);
 		this.socketIoServer.use(sessionSocketIo(dependencies.expressSession));
+		this.socketIoServer.use(p2p);
 	}
 
 	start() {
