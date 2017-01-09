@@ -4,8 +4,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import App from '../both/main/component.jsx';
-import mainReducer from '../both/main/reducer.js';
+import App from './main/component.jsx';
+import mainReducer from './main/reducer.js';
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__PRELOADED_STATE__;

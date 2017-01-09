@@ -5,8 +5,8 @@ import { Provider } from 'react-redux'
 import baseHtml from './html/base.html';
 import serializeJs from 'serialize-javascript';
 import Mustache from 'mustache';
-import App from '../../../both/main/component.jsx';
-import AppReducer from '../../../both/main/reducer.js';
+import App from '../../../browser/main/component.jsx';
+import AppReducer from '../../../browser/main/reducer.js';
 
 function handleRender(request, response) {
 	const store = createStore(AppReducer);

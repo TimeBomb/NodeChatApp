@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node dist/app.js",
     "buildserver": "webpack --config webpack.server.config.js",
-    "buildclient": "webpack --config webpack.browser.config.js"
+    "buildbrowser": "webpack --config webpack.browser.config.js",
+    "build": "webpack --config webpack.server.config.js && webpack --config webpack.browser.config.js",
+    "dev": "webpack --config webpack.server.config.js && webpack --config webpack.browser.config.js && node dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -22,19 +24,28 @@
   },
   "homepage": "https://github.com/TimeBomb/NodeChatApp#readme",
   "devDependencies": {
+    "autoprefixer": "^6.6.1",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
+    "css-loader": "^0.26.1",
     "eslint": "^3.12.2",
     "eslint-config-standard": "^6.2.1",
     "eslint-config-tradeshift": "^2.1.0",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "json-loader": "^0.5.4",
+    "node-sass": "^4.2.0",
+    "postcss-loader": "^1.2.1",
+    "react-css-modules": "^4.1.0",
     "react-hot-loader": "^3.0.0-beta.6",
-    "webpack": "^1.14.0",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.0-rc.3",
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.14.0"
   },

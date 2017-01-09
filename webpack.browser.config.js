@@ -1,27 +1,36 @@
+// TODO: Production webpack config (To shrink size of JS bundle)
+// TODO: DRY up server+browser webpack config by merging shared configs into single file
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
-var fs = require('fs');
 var webpack = require('webpack');
 
 module.exports = {
 	plugins: [
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		new ExtractTextPlugin({
+			filename: './app.css',
+			allChunks: true
+		})
 	],
 	module: {
-		loaders: [{
+		rules: [{
 			test: /\.json$/,
 			loader: 'json-loader'
 		},
 		{
+			test: /\.html$/,
+			loader: 'html-loader'
+		},
+		{
+			test: /\.scss$/,
+			loader: ExtractTextPlugin.extract({ notExtractLoader: 'style-loader', loader: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!sass-loader' })
+		},
+		{
 			test: [/\.js$/, /\.jsx$/],
-			loader: 'babel',
+			loader: 'babel-loader',
 			include: [
 				path.resolve(__dirname, 'src')
 			]
-		},
-		{
-			test: /\.html$/,
-			loader: 'html-loader'
 		}],
 		noParse: [/\.js.map$/]
 	},
