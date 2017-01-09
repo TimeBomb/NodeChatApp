@@ -22,12 +22,15 @@ module.exports = {
 				loader: 'html-loader'
 			},
 			{
-				test: /\.scss$/,
-				loader: ExtractTextPlugin.extract([
-					'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-					'postcss-loader',
-					'sass-loader'
-				])
+				test: [/\.scss$/, /\.css$/],
+				loader: ExtractTextPlugin.extract({
+					fallbackLoader: 'style-loader',
+					loader: [
+						'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&minimize',
+						'postcss-loader',
+						'sass-loader'
+					]
+				})
 			},
 			{
 				test: [/\.js$/, /\.jsx$/],

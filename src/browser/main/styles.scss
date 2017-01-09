@@ -1,6 +1,3 @@
-$bg-color: #cacaca;
-
-.myclass {
-	background-color: $bg-color;
-	display: flex;
+:global {
+	@import 'styles/normalize';
 }
