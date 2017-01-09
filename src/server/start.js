@@ -1,4 +1,4 @@
-global._config = require('../../config.server.json');
+global._config = require('../../config/app/server.json');
 
 import HttpServer from './http/server.js';
 import SocketIoServer from './socketio/server.js';

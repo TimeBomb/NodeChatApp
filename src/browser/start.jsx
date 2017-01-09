@@ -1,4 +1,4 @@
-window._config = require('../../config.browser.json')
+window._config = require('../../config/app/browser.json')
 
 import React from 'react';
 import { render } from 'react-dom';

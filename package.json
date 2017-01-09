@@ -8,10 +8,8 @@
   },
   "scripts": {
     "start": "node dist/app.js",
-    "buildserver": "webpack --config webpack.server.config.js",
-    "buildbrowser": "webpack --config webpack.browser.config.js",
-    "build": "webpack --config webpack.server.config.js && webpack --config webpack.browser.config.js",
-    "dev": "webpack --config webpack.server.config.js && webpack --config webpack.browser.config.js && node dist/app.js"
+    "build": "webpack --config webpack.config.js",
+    "all": "webpack --config webpack.config.js && node dist/app.js"
   },
   "repository": {
     "type": "git",
