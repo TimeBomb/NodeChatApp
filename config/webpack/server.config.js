@@ -1,5 +1,6 @@
 var path = require('path');
 var fs = require('fs');
+var webpack = require('webpack');
 
 // Exclude node modules from being compiled by our server-side webpack code
 // Source: http://jlongster.com/Backend-Apps-with-Webpack--Part-I
@@ -13,6 +14,11 @@ fs.readdirSync('node_modules')
 	});
 
 module.exports = {
+	plugins: [
+		new webpack.ProvidePlugin({
+			_config: path.join(__dirname, '../app/server.js')
+		})
+	],
 	target: 'node',
 	externals: nodeModules,
 	entry: [
@@ -22,18 +28,5 @@ module.exports = {
 		path: path.resolve(__dirname, '../../dist'),
 		filename: 'app.js',
 		publicPath: '/dist/'
-	},
-	module: {
-		rules: [
-			{
-				test: [/\.scss$/, /\.css$/],
-				loader: [
-					// Using css-loader/locals instead of ExtractTextPlugin here per webpack developer's comment: https://github.com/webpack/css-loader/issues/59#issuecomment-109793167
-					'css-loader/locals?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&minimize',
-					'postcss-loader',
-					'sass-loader'
-				]
-			}
-		]
 	}
 };

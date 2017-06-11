@@ -1,5 +1,3 @@
-global._config = require('../../config/app/server.json');
-
 import HttpServer from './http/server.js';
 import SocketIoServer from './socketio/server.js';
 import RenderReactToServer from './http/react/render.jsx';

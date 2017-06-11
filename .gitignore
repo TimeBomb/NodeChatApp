@@ -5,3 +5,4 @@ dist
 static/app-bundle.js
 static/app.css
 sessions.db
+private.config.js
